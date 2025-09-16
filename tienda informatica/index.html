@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions - Mantenimiento</title>
+    <link rel="stylesheet" href="style1.css">
+   
+    <style>
+      
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">TechSolutions</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Mantenimiento</a></li>
+                <li><a href="main.html">Ensamblaje</a></li>
+                <li><a href="main2.html">Sistemas Operativos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Mantenimiento de Computadores</h1>
+            <p>Servicios profesionales de mantenimiento preventivo, correctivo, predictivo y evolutivo para mantener tus equipos en óptimas condiciones</p>
+        </section>
+
+       
+
+        <section class="services">
+            <div class="service-card">
+                <h3>🔧 Mantenimiento Preventivo</h3>
+                <ul>
+                    <li>Limpieza interna y externa del equipo</li>
+                    <li>Revisión de ventiladores y sistema de refrigeración</li>
+                    <li>Actualización de software y drivers</li>
+                    <li>Optimización del sistema operativo</li>
+                    <li>Desfragmentación de disco duro</li>
+                    <li>Revisión de cables y conexiones</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>🔧 Mantenimiento Correctivo</h3>
+                <ul>
+                    <li>Diagnóstico y reparación de fallas</li>
+                    <li>Reemplazo de componentes dañados</li>
+                    <li>Recuperación de datos</li>
+                    <li>Eliminación de virus y malware</li>
+                    <li>Reparación de sistema operativo</li>
+                    <li>Solución de problemas de hardware</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>📊 Mantenimiento Predictivo</h3>
+                <ul>
+                    <li>Monitoreo de temperatura de componentes</li>
+                    <li>Análisis de rendimiento del sistema</li>
+                    <li>Evaluación de vida útil de componentes</li>
+                    <li>Reportes de estado del equipo</li>
+                    <li>Alertas tempranas de posibles fallas</li>
+                    <li>Planificación de actualizaciones</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>🚀 Mantenimiento Evolutivo</h3>
+                <ul>
+                    <li>Actualización de componentes</li>
+                    <li>Mejora de rendimiento</li>
+                    <li>Instalación de nuevo hardware</li>
+                    <li>Optimización para nuevas tecnologías</li>
+                    <li>Configuración de redes</li>
+                    <li>Implementación de nuevas funcionalidades</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="contact-form">
+            <h2>Solicita tu Servicio de Mantenimiento</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+                </div>
+                
+                <div class="form-group">
+                    <label for="servicio">Tipo de Servicio:</label>
+                    <input type="text" id="servicio" name="servicio" placeholder="Ej: Mantenimiento Preventivo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensaje">Describe tu problema o necesidad:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Enviar Solicitud</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TechSolutions. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+        const scrollThreshold = 100; // Pixeles que debe scrollear antes de ocultar/mostrar
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Si estamos en la parte superior de la página, siempre mostrar el header
+            if (scrollTop <= scrollThreshold) {
+                header.classList.remove('hidden');
+                return;
+            }
+            
+            // Si scrolleamos hacia abajo, ocultar el header
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                header.classList.add('hidden');
+            } 
+            // Si scrolleamos hacia arriba, mostrar el header
+            else if (scrollTop < lastScrollTop) {
+                header.classList.remove('hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Prevenir que el header se oculte mientras el usuario está en un input del formulario
+        const formInputs = document.querySelectorAll('input, textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                header.classList.remove('hidden');
+            });
+        });
+
+        // Funcionalidad del formulario
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Solicitud enviada! Nos pondremos en contacto contigo pronto.');
+        });
+    </script>
+</body>
+</html>
